@@ -169,18 +169,18 @@ const LandingPage = () => {
             {[
               {
                 icon: <Shield className="text-melon-vibrant" size={32} />,
-                title: "Zero Asymmetry",
-                description: "Policies written in code, not legalese. You know exactly what's covered, with no hidden exclusions."
+                title: "Transparent",
+                description: "Policies you can actually understand, without hidden exclusions. Built for total clarity and zero ambiguity."
               },
               {
                 icon: <Zap className="text-melon-vibrant" size={32} />,
-                title: "AI-Speed Claims",
-                description: "Upload photos, get paid. Our computer vision models assess damage and payout in minutes."
+                title: "Faster",
+                description: "Instant quotes, automated claims processing, and same-day payouts. Infrastructure that moves at the speed of life."
               },
               {
                 icon: <TrendingUp className="text-melon-vibrant" size={32} />,
-                title: "Profit Sharing",
-                description: "When our community drives safely, premiums go down. We align our incentives with yours."
+                title: "Cheaper",
+                description: "15-20% more affordable than legacy carriers. We pass structural savings directly to you by leveraging a seamless, AI-native structure."
               }
             ].map((feature, i) => (
               <motion.div
