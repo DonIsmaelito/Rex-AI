@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import logoIcon from '../assets/gana_logo_icon.png';
 import { ArrowLeft } from 'lucide-react';
 import './Login.css';
 
@@ -18,7 +19,10 @@ const Login = () => {
           <ArrowLeft color="white" size={24} />
         </div>
         <div className="login-branding">
-          <div className="login-logo">Gana</div>
+          <div className="login-logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+            <img src={logoIcon} alt="Gana" style={{ height: '56px', width: 'auto' }} />
+            <span style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontSize: '3.5rem', fontWeight: '800', letterSpacing: '-0.03em', lineHeight: 1 }}>Gana</span>
+          </div>
           <div className="login-tagline">Insurance for the<br/>21st Century</div>
         </div>
       </div>
