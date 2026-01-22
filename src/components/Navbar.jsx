@@ -1,40 +1,42 @@
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import logoIcon from '../assets/gana_logo_icon.png';
 
 const Navbar = () => {
   return (
-    <nav style={{
-      height: 'var(--nav-height)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      maxWidth: 'var(--max-width)',
-      margin: '0 auto',
-      padding: '0 2rem'
-    }}>
-      <div className="logo" style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--color-primary)', letterSpacing: '-1px' }}>
-        Gana
-      </div>
-      <div>
-        <Link to="/login" style={{
-          textDecoration: 'none',
-          color: 'var(--color-primary)',
-          fontWeight: '600',
-          padding: '0.8rem 1.5rem',
-          border: '2px solid var(--color-primary)',
-          borderRadius: '50px',
-          transition: 'all 0.3s ease'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.background = 'var(--color-primary)';
-          e.target.style.color = '#fff';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.background = 'transparent';
-          e.target.style.color = 'var(--color-primary)';
-        }}
-        >
-          Login
-        </Link>
+    <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
+      <div className="w-full max-w-6xl bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] px-8 py-3 flex items-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] ring-1 ring-white/5">
+        {/* Logo - Left */}
+        <div className="w-1/3 flex justify-start">
+          <Link to="/" className="flex items-center gap-3 group">
+            <motion.img 
+              initial={{ rotate: -10 }}
+              animate={{ rotate: 0 }}
+              src={logoIcon} 
+              alt="Gana" 
+              className="h-10 w-auto drop-shadow-md" 
+            />
+            <span className="text-2xl font-extrabold text-white tracking-tight" style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', letterSpacing: '-0.03em' }}>Gana</span>
+          </Link>
+        </div>
+        
+        {/* Nav Links - Center */}
+        <div className="hidden md:flex flex-1 items-center justify-center gap-8 text-sm font-bold text-white/80">
+          <span className="hover:text-white transition-colors cursor-pointer">Products</span>
+          <span className="hover:text-white transition-colors cursor-pointer">Solutions</span>
+          <span className="hover:text-white transition-colors cursor-pointer">Pricing</span>
+          <span className="hover:text-white transition-colors cursor-pointer">Resources</span>
+        </div>
+        
+        {/* Sign In - Right */}
+        <div className="w-1/3 flex justify-end">
+          <Link 
+            to="/login" 
+            className="px-6 py-2 rounded-full font-bold text-white border border-white/20 hover:bg-white/10 transition-all text-sm"
+          >
+            Sign in
+          </Link>
+        </div>
       </div>
     </nav>
   );
