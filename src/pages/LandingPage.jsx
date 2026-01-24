@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar';
-import logoIcon from '../assets/gana_logo_icon.png';
+import logoIcon from '../assets/rex_logo.png';
 import { ArrowRight, Shield, Zap, DollarSign, CheckCircle, TrendingUp, Users, Activity } from 'lucide-react';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
@@ -35,37 +35,38 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="text-5xl lg:text-7xl font-extrabold !text-white leading-[1.1] tracking-tight mb-8 drop-shadow-lg">
-                The future of<br />
-                <span className="text-melon-vibrant">insurance</span> is<br />
-                infrastructure.
+              <h1 className="text-[10rem] lg:text-[14rem] font-extrabold !text-white leading-[0.8] tracking-tighter mb-12 drop-shadow-2xl">
+                REX
               </h1>
+              <p className="text-3xl lg:text-4xl font-extrabold text-melon-vibrant mb-12 leading-tight tracking-tight">
+                The only AI insurance <br className="hidden lg:block"/>built for fintech.
+              </p>
             </motion.div>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg !text-melon/90 max-w-lg mb-10 leading-relaxed font-medium"
+              className="text-2xl !text-melon/70 max-w-lg mb-16 leading-relaxed font-medium"
             >
-              Gana replaces legacy paperwork with AI-native infrastructure. 
-              Get transparent coverage, instant payouts, and structurally lower costs.
+              Rex replaces legacy paperwork with AI-native infrastructure. 
+              Get autonomous coverage, instant risk audits, and API-first liability protection.
             </motion.p>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:row gap-4"
             >
-              <div className="flex items-center bg-white/10 backdrop-blur-md rounded-full p-2 border border-white/20 shadow-2xl max-w-lg w-full ring-4 ring-white/5">
+              <div className="flex items-center bg-white/5 backdrop-blur-xl rounded-full p-2 border border-white/10 shadow-2xl max-w-xl w-full ring-1 ring-white/10">
                 <input 
                   type="email" 
                   placeholder="Enter your email"
-                  className="flex-1 px-6 py-3 text-white placeholder:text-white/50 outline-none bg-transparent font-medium"
+                  className="flex-1 px-8 py-4 text-white placeholder:text-white/30 outline-none bg-transparent font-medium text-lg"
                 />
-                <button className="bg-melon-vibrant text-forest-dark px-8 py-3 rounded-full font-bold hover:bg-melon transition-all hover:scale-105 flex items-center gap-2 whitespace-nowrap shadow-lg shadow-melon-vibrant/20">
-                  Get Started <ArrowRight size={18} />
+                <button className="bg-melon-vibrant text-forest-dark px-10 py-4 rounded-full font-bold hover:bg-melon transition-all hover:scale-105 flex items-center gap-2 whitespace-nowrap shadow-xl shadow-melon-vibrant/20 text-lg">
+                  Get Started <ArrowRight size={20} />
                 </button>
               </div>
             </motion.div>
@@ -78,109 +79,146 @@ const LandingPage = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="relative hidden lg:block"
+            className="relative hidden lg:block scale-[1.1]"
           >
              {/* Fake Dashboard Interface Container */}
-             <div className="bg-white rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-forest-light/10 p-6 relative z-10 w-full max-w-lg mx-auto backdrop-blur-sm bg-white/95">
+             <div className="bg-white/95 backdrop-blur-xl rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] border border-white/20 p-10 relative z-10 w-full max-w-xl mx-auto">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between mb-10">
                    <div>
-                      <h3 className="text-forest font-bold text-xl">Good morning, Sarah</h3>
-                      <p className="text-forest/60 text-sm">Here's your coverage overview</p>
+                      <h3 className="text-forest font-black text-2xl tracking-tight">Good morning, Sarah</h3>
+                      <p className="text-forest/40 text-sm font-bold uppercase tracking-widest mt-1">Here's your coverage overview</p>
                    </div>
-                   <div className="w-10 h-10 rounded-full bg-melon flex items-center justify-center text-forest font-bold">SM</div>
+                   <div className="w-14 h-14 rounded-full bg-melon flex items-center justify-center text-forest font-black text-xl shadow-inner">SM</div>
                 </div>
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                   <div className="bg-melon/20 rounded-xl p-4 border border-melon/30">
-                      <div className="flex items-center gap-2 mb-2 text-forest/70 text-sm font-medium">
-                         <Shield size={16} /> Active Policy
+                 {/* Stats Grid */}
+                <div className="grid grid-cols-2 gap-6 mb-8">
+                   <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100/50 shadow-sm">
+                      <div className="flex items-center gap-2 mb-4 text-forest/40 text-xs font-black uppercase tracking-widest">
+                         <Shield size={14} className="text-forest/20" /> AI Risk Liability
                       </div>
-                      <div className="text-2xl font-bold text-forest">Tesla Model 3</div>
-                      <div className="text-xs text-green-600 font-semibold mt-1 flex items-center gap-1">
-                         <CheckCircle size={12} /> Coverage Active
+                      <div className="text-2xl font-black text-forest tracking-tight">API Integration A</div>
+                      <div className="text-xs text-green-600 font-bold mt-4 flex items-center gap-2">
+                         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div> Live Monitoring
                       </div>
                    </div>
-                   <div className="bg-forest/5 rounded-xl p-4 border border-forest/10">
-                      <div className="flex items-center gap-2 mb-2 text-forest/70 text-sm font-medium">
-                         <DollarSign size={16} /> Monthly Prem.
+                   <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100/50 shadow-sm">
+                      <div className="flex items-center gap-2 mb-4 text-forest/40 text-xs font-black uppercase tracking-widest">
+                         <DollarSign size={14} className="text-forest/20" /> Risk Premium
                       </div>
-                      <div className="text-2xl font-bold text-forest">$89.00</div>
-                      <div className="text-xs text-melon-vibrant font-semibold mt-1 bg-forest/90 inline-block px-2 py-0.5 rounded-full">
-                         -25% vs Avg
+                      <div className="text-3xl font-black text-forest tracking-tight">$2,450.00</div>
+                      <div className="text-xs text-forest/40 font-bold mt-4 bg-forest/5 inline-block px-3 py-1 rounded-full">
+                         Dynamic rate
                       </div>
                    </div>
                 </div>
 
                 {/* Action List */}
-                <div className="space-y-3">
-                   <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-4 flex items-center justify-between hover:bg-gray-50 transition-colors cursor-pointer group">
-                      <div className="flex items-center gap-3">
-                         <div className="w-10 h-10 rounded-lg bg-forest text-white flex items-center justify-center">
-                            <Activity size={20} />
+                <div className="space-y-4">
+                   <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                         <div className="w-12 h-12 rounded-xl bg-forest text-white flex items-center justify-center">
+                            <Activity size={24} />
                          </div>
                          <div>
-                            <div className="font-bold text-forest text-sm">Driving Score</div>
-                            <div className="text-xs text-gray-500">Last updated: Today</div>
+                            <div className="font-black text-forest text-lg tracking-tight">Safety Rating</div>
+                            <div className="text-xs text-forest/40 font-bold">Real-time audit active</div>
                          </div>
                       </div>
-                      <div className="font-bold text-lg text-forest group-hover:text-melon-vibrant transition-colors">98/100</div>
+                      <div className="font-black text-2xl text-forest">99.2%</div>
                    </div>
                    
-                   <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-4 flex items-center justify-between hover:bg-gray-50 transition-colors cursor-pointer">
-                      <div className="flex items-center gap-3">
-                         <div className="w-10 h-10 rounded-lg bg-melon-vibrant text-forest flex items-center justify-center">
-                            <Zap size={20} />
+                   <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                         <div className="w-12 h-12 rounded-xl bg-melon-vibrant text-forest flex items-center justify-center">
+                            <Zap size={24} />
                          </div>
                          <div>
-                            <div className="font-bold text-forest text-sm">Instant Claims</div>
-                            <div className="text-xs text-gray-500">AI-powered processing</div>
+                            <div className="font-black text-forest text-lg tracking-tight">Instant Audit</div>
+                            <div className="text-xs text-forest/40 font-bold">Autonomous risk assessment</div>
                          </div>
                       </div>
-                      <ArrowRight size={18} className="text-gray-400" />
+                      <ArrowRight size={20} className="text-forest/20" />
                    </div>
                 </div>
                 
                 {/* Floating Badge */}
-                <div className="absolute -top-6 -right-6 bg-forest text-white px-4 py-2 rounded-lg shadow-xl border border-white/20 flex items-center gap-2 animate-bounce">
-                   <Zap size={16} className="text-melon-vibrant" />
-                   <span className="font-bold text-sm">Quote in 30s</span>
+                <div className="absolute -top-8 -right-8 bg-forest text-white px-6 py-3 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3 animate-bounce shadow-forest/40">
+                   <Zap size={18} className="text-melon-vibrant fill-current" />
+                   <span className="font-black text-sm tracking-tight">Audit in 15s</span>
                 </div>
              </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-white relative">
-        <div className="w-full max-w-7xl mx-auto px-8 lg:px-16">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-forest mb-6">
-              Structurally superior
+      {/* Problem Section */}
+      <section className="py-32 bg-forest relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d8f3dc_1.5px,transparent_1.5px)] [background-size:40px_40px]"></div>
+        <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end mb-20">
+            <div>
+              <h2 className="text-6xl lg:text-8xl font-extrabold !text-white mb-8 tracking-tighter">
+                The Problem
+              </h2>
+              <p className="text-2xl !text-melon/80 max-w-xl leading-relaxed">
+                Major insurers are excluding AI coverage while fintech deploys AI everywhere.
+              </p>
+            </div>
+            <div className="border-l-4 border-melon-vibrant pl-8 py-2">
+              <div className="text-melon-vibrant font-black uppercase text-sm tracking-[0.3em] mb-4">Real Incidents</div>
+              <div className="text-white/90 font-medium italic text-lg leading-relaxed">
+                "Air Canada liable for chatbot error • Financial advisors sued for AI advice • Banks catching £1M+ fraud weekly"
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { val: "3", label: "Major carriers filing to exclude AI liabilities" },
+              { val: "$500B", label: "Fintech industry with zero clear AI coverage" },
+              { val: "85%", label: "Of banks deploying AI for lending & fraud" }
+            ].map((stat, i) => (
+              <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 p-10 rounded-[2rem] hover:bg-white/10 transition-colors">
+                <div className="text-7xl font-extrabold text-melon-vibrant mb-4 tracking-tighter">{stat.val}</div>
+                <div className="text-white/60 font-bold uppercase tracking-wider text-xs leading-loose">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Solution Section */}
+      <section className="py-32 bg-[#16382a] relative overflow-hidden">
+        {/* Subtle overlay pattern */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d8f3dc_1.5px,transparent_1.5px)] [background-size:40px_40px]"></div>
+        <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
+          <div className="text-center mb-24">
+            <h2 className="text-6xl lg:text-8xl font-extrabold !text-white mb-8 tracking-tighter">
+              Our Solution
             </h2>
-            <p className="text-xl text-forest/70 max-w-3xl mx-auto leading-relaxed">
-              We didn't just digitize old insurance forms. We rebuilt the core infrastructure 
-              to maximize transparency and minimize cost.
+            <p className="text-2xl !text-melon/70 max-w-3xl mx-auto leading-relaxed">
+              First MGA delivering autonomous, API-first AI liability coverage for the modern fintech stack.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
-                icon: <Shield className="text-melon-vibrant" size={32} />,
-                title: "Transparent",
-                description: "Policies you can actually understand, without hidden exclusions. Built for total clarity and zero ambiguity."
+                icon: <Shield size={32} />,
+                title: "Autonomous",
+                description: "AI-driven underwriting that understands code better than legacy brokers ever could."
               },
               {
-                icon: <Zap className="text-melon-vibrant" size={32} />,
-                title: "Faster",
-                description: "Instant quotes, automated claims processing, and same-day payouts. Infrastructure that moves at the speed of life."
+                icon: <Zap size={32} />,
+                title: "API-First",
+                description: "Embed liability protection directly into your deployment pipeline. Coverage at the speed of code."
               },
               {
-                icon: <TrendingUp className="text-melon-vibrant" size={32} />,
-                title: "Cheaper",
-                description: "15-20% more affordable than legacy carriers. We pass structural savings directly to you by leveraging a seamless, AI-native structure."
+                icon: <TrendingUp size={32} />,
+                title: "Risk-Adjusted",
+                description: "Dynamically priced premiums based on real-time safety logs and system performance."
               }
             ].map((feature, i) => (
               <motion.div
@@ -189,13 +227,13 @@ const LandingPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-melon-vibrant hover:shadow-xl hover:shadow-melon-vibrant/10 transition-all duration-300 group"
+                className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 hover:border-melon-vibrant/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-melon-vibrant/5 transition-all duration-500 group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-forest flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-forest/20">
+                <div className="w-20 h-20 rounded-3xl bg-melon-vibrant mb-10 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(74,222,128,0.3)] flex items-center justify-center text-forest">
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-forest mb-4">{feature.title}</h3>
-                <p className="text-forest/70 leading-relaxed font-medium">{feature.description}</p>
+                <h3 className="text-4xl font-black !text-white mb-6 tracking-tight">{feature.title}</h3>
+                <p className="!text-melon/60 leading-relaxed font-medium text-xl">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -203,30 +241,32 @@ const LandingPage = () => {
       </section>
 
       {/* Dashboard Preview Section (Coded) */}
-      <section className="py-24 bg-melon/20">
-        <div className="w-full max-w-7xl mx-auto px-8 lg:px-16">
+      <section className="py-32 bg-[#1e4a38] relative overflow-hidden">
+        {/* Subtle overlay pattern */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d8f3dc_1.5px,transparent_1.5px)] [background-size:40px_40px]"></div>
+        <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <div className="inline-block bg-white text-forest font-bold px-4 py-1 rounded-full text-sm mb-6 border border-forest/10 shadow-sm">
+              <div className="inline-block bg-white/10 backdrop-blur-md text-melon font-bold px-4 py-1 rounded-full text-sm mb-6 border border-white/10 shadow-sm">
                 Control Center
               </div>
-              <h2 className="text-4xl lg:text-5xl font-extrabold text-forest mb-8 leading-tight">
-                Your entire financial life,<br />
-                <span className="text-melon-vibrant">demystified.</span>
+              <h2 className="text-4xl lg:text-5xl font-extrabold !text-white mb-8 leading-tight">
+                Your entire AI risk stack, <br />
+                <span className="text-melon-vibrant">automated.</span>
               </h2>
-              <p className="text-lg text-forest/70 mb-10 leading-relaxed">
-                Manage policies, file claims, and track your driving score from a single, 
-                beautiful dashboard. No phone calls, no fax machines.
+              <p className="text-lg !text-melon/80 mb-10 leading-relaxed font-medium">
+                Real-time risk audits, automated liability coverage, and AI risk scoring 
+                from a single, beautiful command center. No paperwork, no friction.
               </p>
               
               <ul className="space-y-4 mb-10">
                 {[
-                  "Apple Pay & Google Pay Integration",
-                  "Real-time coverage adjustments",
-                  "24/7 AI Legal Assistant",
-                  "Family fleet management"
+                  "Real-time Safety Audit Logs",
+                  "API-driven claims processing",
+                  "Automated Liability Issuance",
+                  "Autonomous Risk Scoring"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-forest font-semibold">
+                  <li key={i} className="flex items-center gap-3 !text-white font-bold">
                     <div className="w-6 h-6 rounded-full bg-melon-vibrant flex items-center justify-center text-forest">
                       <CheckCircle size={14} />
                     </div>
@@ -237,9 +277,9 @@ const LandingPage = () => {
               
               <Link 
                 to="/dashboard"
-                className="inline-flex items-center gap-2 text-forest font-bold text-lg hover:text-melon-vibrant transition-colors group"
+                className="inline-flex items-center gap-2 !text-melon font-bold text-lg hover:text-melon-vibrant transition-colors group"
               >
-                Launch demo <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Access risk cockpit <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
             
@@ -256,13 +296,13 @@ const LandingPage = () => {
                        <div className="w-3 h-3 rounded-full bg-green-400"></div>
                     </div>
                     <div className="flex-1 bg-white border border-gray-200 rounded-md py-1 px-3 text-center text-xs text-gray-400 font-mono">
-                       app.gana.com/dashboard
+                       app.rex.com/dashboard
                     </div>
                  </div>
                  
                  <div className="p-8 bg-gray-50 min-h-[400px]">
                     <div className="flex justify-between items-center mb-8">
-                       <h4 className="text-2xl font-extrabold text-forest">Policies</h4>
+                       <h4 className="text-2xl font-extrabold text-forest">Risk Portfolio</h4>
                        <button className="bg-forest text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2">
                           <Zap size={14} /> Add New
                        </button>
@@ -276,24 +316,24 @@ const LandingPage = () => {
                                    <Shield size={24} />
                                 </div>
                                 <div>
-                                   <div className="font-bold text-forest">Tesla Model Y {i === 0 ? 'Performance' : 'Long Range'}</div>
-                                   <div className="text-sm text-gray-500">Policy #{83920 + i} • Active</div>
+                                   <div className="font-bold text-forest">{i === 0 ? 'Lending Model v4.2' : 'Fraud Engine v1.0'}</div>
+                                   <div className="text-sm text-gray-500">Autonomous Liability • Active</div>
                                 </div>
                              </div>
                              <div className="text-right">
-                                <div className="font-bold text-forest">$124/mo</div>
-                                <div className="text-xs text-melon-vibrant font-bold">Next pt: Aug 1</div>
+                                <div className="font-bold text-forest">$2,450/mo</div>
+                                <div className="text-xs text-melon-vibrant font-bold">Last Audit: 1h ago</div>
                              </div>
                           </div>
                        ))}
                        
                        <div className="bg-forest rounded-xl p-6 text-white flex items-center justify-between shadow-lg relative overflow-hidden">
                           <div className="relative z-10">
-                             <div className="font-bold mb-1">Safe Driver Discount</div>
-                             <div className="text-melon text-sm">You saved $420 this year</div>
+                             <div className="font-bold mb-1">Security Maintenance Credit</div>
+                             <div className="text-melon text-sm">Audit compliance: 100%</div>
                           </div>
-                          <div className="w-12 h-12 rounded-full bg-melon-vibrant flex items-center justify-center text-forest relative z-10 font-bold">
-                             A+
+                          <div className="w-12 h-12 rounded-full bg-melon-vibrant flex items-center justify-center text-forest relative z-10">
+                              <CheckCircle size={24} className="font-bold" />
                           </div>
                           <div className="absolute right-0 bottom-0 opacity-10">
                               <Shield size={100} />
@@ -307,34 +347,15 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-forest text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#34d399 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-        <div className="w-full max-w-4xl mx-auto px-8 lg:px-16 text-center relative z-10">
-          <h2 className="text-5xl lg:text-6xl font-extrabold mb-8 tracking-tight">
-            Ready to upgrade?
-          </h2>
-          <p className="text-xl text-melon/80 mb-10 max-w-2xl mx-auto">
-            Join the insurance carrier that treats you like a partner, not a policy number.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link 
-              to="/login"
-              className="bg-melon-vibrant text-forest px-10 py-5 rounded-full font-bold text-lg hover:bg-white hover:scale-105 transition-all shadow-xl shadow-melon-vibrant/20"
-            >
-              Get my quote
-            </Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* Footer */}
       <footer className="py-16 bg-white border-t border-gray-100">
         <div className="w-full max-w-7xl mx-auto px-8 lg:px-16">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-3">
-              <img src={logoIcon} alt="Gana" className="h-10 w-auto" />
-              <span className="text-2xl font-extrabold text-forest tracking-tight">Gana</span>
+              <img src={logoIcon} alt="Rex" className="h-10 w-auto" />
+              <span className="text-2xl font-extrabold text-forest tracking-tight">Rex</span>
             </div>
             
             <div className="flex gap-8 text-forest/60 font-medium">
@@ -346,7 +367,7 @@ const LandingPage = () => {
           </div>
           
           <div className="mt-12 text-center text-sm text-gray-400 font-medium">
-            &copy; 2026 Gana Insurance Inc. Built for the future.
+            &copy; 2026 Rex Insurance Inc. Built for the future.
           </div>
         </div>
       </footer>
