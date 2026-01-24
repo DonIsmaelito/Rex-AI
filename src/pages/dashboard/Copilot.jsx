@@ -4,7 +4,7 @@ import { Send, Bot, User } from 'lucide-react';
 const Copilot = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
-    { id: 1, sender: 'bot', text: 'Hi John! I\'m your Gana AI Copilot. How can I assist you with your insurance today?' }
+    { id: 1, sender: 'bot', text: 'Hi John! I\'m your Rex AI Copilot. How can I assist you with your insurance today?' }
   ]);
 
   const handleSend = (e) => {

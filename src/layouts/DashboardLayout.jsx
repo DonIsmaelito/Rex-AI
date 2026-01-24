@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom';
-import logoIcon from '../assets/gana_logo_icon.png';
+import logoIcon from '../assets/rex_logo.png';
 import { LayoutDashboard, FileText, AlertCircle, Bot, LogOut } from 'lucide-react';
 import './Dashboard.css';
 
@@ -7,11 +7,8 @@ const DashboardLayout = () => {
   return (
     <div className="dashboard-layout">
       <aside className="sidebar">
-        <div className="sidebar-logo" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '3rem' }}>
-          <img src={logoIcon} alt="Gana" style={{ height: '32px', width: 'auto' }} />
-          <span style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontSize: '2rem', fontWeight: '800', color: 'white', letterSpacing: '-0.03em' }}>
-            Gana
-          </span>
+        <div className="sidebar-logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '3rem' }}>
+          <img src={logoIcon} alt="Rex" style={{ height: '80px', width: 'auto' }} />
         </div>
         
         <nav className="nav-links">

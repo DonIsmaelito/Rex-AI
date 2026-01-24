@@ -1,22 +1,20 @@
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
-import logoIcon from '../assets/gana_logo_icon.png';
+import logoIcon from '../assets/rex_logo.png';
 
 const Navbar = () => {
   return (
     <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
       <div className="w-full max-w-6xl bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] px-8 py-3 flex items-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] ring-1 ring-white/5">
-        {/* Logo - Left */}
-        <div className="w-1/3 flex justify-start">
-          <Link to="/" className="flex items-center gap-3 group">
+        <div className="w-1/4 flex justify-start">
+          <Link to="/" className="flex items-center gap-4 group">
             <motion.img 
               initial={{ rotate: -10 }}
               animate={{ rotate: 0 }}
               src={logoIcon} 
-              alt="Gana" 
-              className="h-10 w-auto drop-shadow-md" 
+              alt="Rex" 
+              className="h-16 w-auto drop-shadow-xl" 
             />
-            <span className="text-2xl font-extrabold text-white tracking-tight" style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', letterSpacing: '-0.03em' }}>Gana</span>
           </Link>
         </div>
         
@@ -28,11 +26,10 @@ const Navbar = () => {
           <span className="hover:text-white transition-colors cursor-pointer">Resources</span>
         </div>
         
-        {/* Sign In - Right */}
-        <div className="w-1/3 flex justify-end">
+        <div className="w-1/4 flex justify-end">
           <Link 
             to="/login" 
-            className="px-6 py-2 rounded-full font-bold text-white border border-white/20 hover:bg-white/10 transition-all text-sm"
+            className="px-8 py-3 rounded-full font-bold text-forest bg-white hover:bg-melon transition-all text-base shadow-lg hover:shadow-white/20 hover:scale-105"
           >
             Sign in
           </Link>
