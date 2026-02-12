@@ -1,69 +1,168 @@
-import { useNavigate } from 'react-router-dom';
-import logoIcon from '../assets/rex_logo.png';
+import { useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import logoIcon from '../assets/rex_logo.png';
+import { useAppData } from '../context/AppDataContext';
 import './Login.css';
 
 const Login = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const { login, signUp } = useAppData();
+  const redirectPath = searchParams.get('next') || '/dashboard';
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Simulate login
-    navigate('/dashboard');
+  const [mode, setMode] = useState('signin');
+  const [form, setForm] = useState({
+    fullName: '',
+    email: '',
+    password: '',
+  });
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (field, value) => {
+    setForm((previous) => ({
+      ...previous,
+      [field]: value,
+    }));
+    setError('');
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      if (mode === 'signin') {
+        login({
+          email: form.email,
+          password: form.password,
+        });
+      } else {
+        signUp({
+          fullName: form.fullName,
+          email: form.email,
+          password: form.password,
+        });
+      }
+      navigate(redirectPath);
+    } catch (submitError) {
+      setError(submitError.message || 'Unable to continue.');
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="login-page">
-      <div className="login-left">
-        <div style={{ position: 'absolute', top: '2rem', left: '2rem', cursor: 'pointer' }} onClick={() => navigate('/')}>
-          <ArrowLeft color="white" size={24} />
+    <div className="auth-shell">
+      <section className="auth-form-pane">
+        <button type="button" className="auth-back" onClick={() => navigate('/')}>
+          <ArrowLeft size={18} />
+          Back
+        </button>
+
+        <div className="auth-brand">
+          <img src={logoIcon} alt="Rex AI" className="auth-brand-logo" />
+          <span className="auth-brand-name">Rex AI</span>
         </div>
-        <div className="login-branding">
-          <div className="login-logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-            <img src={logoIcon} alt="Rex" style={{ height: '80px', width: 'auto' }} />
-            <span style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', fontSize: '3.5rem', fontWeight: '800', letterSpacing: '-0.03em', lineHeight: 1 }}>Rex</span>
+
+        <div className="auth-card">
+          <div className="auth-card-heading">
+            <h1>{mode === 'signin' ? 'Login to your account' : 'Create your account'}</h1>
+            <p>
+              {mode === 'signin'
+                ? 'Enter your email below to login to your account'
+                : 'Start your policy journey with Rex AI'}
+            </p>
           </div>
-          <div className="login-tagline">Insurance for the<br/>21st Century</div>
-        </div>
-      </div>
-      
-      <div className="login-right">
-        <div className="login-form-container">
-          <h2 className="login-heading">Welcome back</h2>
-          
-          <form onSubmit={handleLogin}>
-            <div className="form-group">
-              <label className="form-label">Email address</label>
-              <input type="email" className="form-input" placeholder="you@example.com" required />
+
+          <form onSubmit={handleSubmit} className="auth-form">
+            {mode === 'signup' ? (
+              <div className="auth-field">
+                <label htmlFor="fullName">Full name</label>
+                <input
+                  id="fullName"
+                  type="text"
+                  placeholder="Jane Doe"
+                  value={form.fullName}
+                  onChange={(event) => handleChange('fullName', event.target.value)}
+                  required
+                />
+              </div>
+            ) : null}
+
+            <div className="auth-field">
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                value={form.email}
+                onChange={(event) => handleChange('email', event.target.value)}
+                required
+              />
             </div>
-            
-            <div className="form-group">
-              <label className="form-label">Password</label>
-              <input type="password" className="form-input" placeholder="••••••••" required />
+
+            <div className="auth-field">
+              <div className="auth-label-row">
+                <label htmlFor="password">Password</label>
+                {mode === 'signin' ? (
+                  <a href="#forgot" onClick={(event) => event.preventDefault()}>
+                    Forgot your password?
+                  </a>
+                ) : null}
+              </div>
+              <input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                value={form.password}
+                onChange={(event) => handleChange('password', event.target.value)}
+                required
+              />
             </div>
-            
-            <button type="submit" className="btn-login">Sign In</button>
+
+            {error ? <p className="auth-error">{error}</p> : null}
+
+            <button type="submit" className="auth-submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Processing...' : mode === 'signin' ? 'Login' : 'Create account'}
+            </button>
+
+            <div className="auth-divider">
+              <span>Or continue with</span>
+            </div>
+
+            <button type="button" className="auth-google">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M21.35 11.1h-9.17v2.98h5.26c-.23 1.52-1.79 4.45-5.26 4.45-3.16 0-5.73-2.62-5.73-5.85s2.57-5.85 5.73-5.85c1.8 0 3 0.77 3.69 1.42l2.52-2.45C16.77 4.32 14.69 3.5 12.18 3.5 7.17 3.5 3.1 7.59 3.1 12.68c0 5.1 4.07 9.18 9.08 9.18 5.24 0 8.72-3.7 8.72-8.9 0-.6-.06-1.05-.15-1.86Z"
+                  fill="currentColor"
+                />
+              </svg>
+              Continue with Google
+            </button>
           </form>
-          
-          <div className="divider">
-            <span>or continue with</span>
-          </div>
-          
-          <button className="btn-google">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.21-1.19-.63z" fill="#FBBC05"/>
-              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-            </svg>
-            Google
-          </button>
-          
-          <p style={{ textAlign: 'center', marginTop: '1.5rem', color: '#6B7280', fontSize: '0.9rem' }}>
-            Don't have an account? <span style={{ color: 'var(--color-primary)', fontWeight: 600, cursor: 'pointer' }}>Sign up</span>
+
+          <p className="auth-switch">
+            {mode === 'signin' ? "Don't have an account?" : 'Already have an account?'}{' '}
+            <button
+              type="button"
+              onClick={() => {
+                setMode(mode === 'signin' ? 'signup' : 'signin');
+                setError('');
+                setIsSubmitting(false);
+              }}
+            >
+              {mode === 'signin' ? 'Sign up' : 'Sign in'}
+            </button>
           </p>
         </div>
-      </div>
+      </section>
+
+      <aside className="auth-visual-pane">
+        <div className="auth-visual-glow" />
+        <p>insurance for the 21st century.</p>
+      </aside>
     </div>
   );
 };

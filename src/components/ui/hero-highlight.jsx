@@ -3,6 +3,9 @@ import { cn } from "@/lib/utils";
 import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
 import React from "react";
 
+const MotionDiv = motion.div;
+const MotionSpan = motion.span;
+
 export const HeroHighlight = ({
   children,
   className,
@@ -32,7 +35,7 @@ export const HeroHighlight = ({
       onMouseMove={handleMouseMove}>
       <div
         className="absolute inset-0 bg-dot-thick-neutral-300 pointer-events-none" />
-      <motion.div
+      <MotionDiv
         className="pointer-events-none bg-dot-thick-primary absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
           WebkitMaskImage: useMotionTemplate`
@@ -60,7 +63,7 @@ export const Highlight = ({
   className
 }) => {
   return (
-    <motion.span
+    <MotionSpan
       initial={{
         backgroundSize: "0% 100%",
       }}
@@ -82,6 +85,6 @@ export const Highlight = ({
         className
       )}>
       {children}
-    </motion.span>
+    </MotionSpan>
   );
 };

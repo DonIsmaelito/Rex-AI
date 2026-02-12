@@ -1,8 +1,11 @@
 import Navbar from '../components/Navbar';
 import logoIcon from '../assets/rex_logo.png';
-import { ArrowRight, Shield, Zap, DollarSign, CheckCircle, TrendingUp, Users, Activity } from 'lucide-react';
+import { ArrowRight, Shield, Zap, DollarSign, CheckCircle, TrendingUp, Activity } from 'lucide-react';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+
+const MotionDiv = motion.div;
+const MotionP = motion.p;
 
 const LandingPage = () => {
   return (
@@ -30,30 +33,31 @@ const LandingPage = () => {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-8 lg:px-16 py-16 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* Left Column - Text */}
           <div className="text-left">
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="text-[10rem] lg:text-[14rem] font-extrabold !text-white leading-[0.8] tracking-tighter mb-12 drop-shadow-2xl">
-                REX
+              <h1 className="inline-flex items-baseline whitespace-nowrap -ml-3 sm:-ml-4 lg:-ml-20 text-[10rem] lg:text-[14rem] font-extrabold !text-white leading-[0.8] tracking-tighter mb-12 drop-shadow-2xl">
+                <span>REX</span>
+                <span className="ml-6 lg:ml-7">AI</span>
               </h1>
               <p className="text-3xl lg:text-4xl font-extrabold text-melon-vibrant mb-12 leading-tight tracking-tight">
-                The only AI insurance <br className="hidden lg:block"/>built for fintech.
+                Claims-first AI insurance <br className="hidden lg:block"/>for modern operations.
               </p>
-            </motion.div>
+            </MotionDiv>
             
-            <motion.p
+            <MotionP
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-2xl !text-melon/70 max-w-lg mb-16 leading-relaxed font-medium"
             >
-              Rex replaces legacy paperwork with AI-native infrastructure. 
-              Get autonomous coverage, instant risk audits, and API-first liability protection.
-            </motion.p>
+              Run policy setup, live claim tracking, evidence collection, and Rexy guidance in one workspace.
+              Monitor evaluator score, open exposure, and resolution health in real time.
+            </MotionP>
             
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -66,16 +70,16 @@ const LandingPage = () => {
                   className="flex-1 px-8 py-4 text-white placeholder:text-white/30 outline-none bg-transparent font-medium text-lg"
                 />
                 <button className="bg-melon-vibrant text-forest-dark px-10 py-4 rounded-full font-bold hover:bg-melon transition-all hover:scale-105 flex items-center gap-2 whitespace-nowrap shadow-xl shadow-melon-vibrant/20 text-lg">
-                  Get Started <ArrowRight size={20} />
+                  Start Workspace <ArrowRight size={20} />
                 </button>
               </div>
-            </motion.div>
+            </MotionDiv>
             
 
           </div>
           
           {/* Right Column - Coded UI (Not Image) */}
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
@@ -86,8 +90,8 @@ const LandingPage = () => {
                 {/* Header */}
                 <div className="flex items-center justify-between mb-10">
                    <div>
-                      <h3 className="text-forest font-black text-2xl tracking-tight">Good morning, Sarah</h3>
-                      <p className="text-forest/40 text-sm font-bold uppercase tracking-widest mt-1">Here's your coverage overview</p>
+                      <h3 className="text-forest font-black text-2xl tracking-tight">Good afternoon, Ismael</h3>
+                      <p className="text-forest/40 text-sm font-bold uppercase tracking-widest mt-1">Overview, policies, claims, and Rexy</p>
                    </div>
                    <div className="w-14 h-14 rounded-full bg-melon flex items-center justify-center text-forest font-black text-xl shadow-inner">SM</div>
                 </div>
@@ -96,20 +100,20 @@ const LandingPage = () => {
                 <div className="grid grid-cols-2 gap-6 mb-8">
                    <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100/50 shadow-sm">
                       <div className="flex items-center gap-2 mb-4 text-forest/40 text-xs font-black uppercase tracking-widest">
-                         <Shield size={14} className="text-forest/20" /> AI Risk Liability
+                         <Shield size={14} className="text-forest/20" /> Open Claims Exposure
                       </div>
-                      <div className="text-2xl font-black text-forest tracking-tight">API Integration A</div>
+                      <div className="text-2xl font-black text-forest tracking-tight">$27,167,740</div>
                       <div className="text-xs text-green-600 font-bold mt-4 flex items-center gap-2">
-                         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div> Live Monitoring
+                         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div> 525 Open Claims
                       </div>
                    </div>
                    <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100/50 shadow-sm">
                       <div className="flex items-center gap-2 mb-4 text-forest/40 text-xs font-black uppercase tracking-widest">
-                         <DollarSign size={14} className="text-forest/20" /> Risk Premium
+                         <DollarSign size={14} className="text-forest/20" /> Resolution Rate
                       </div>
-                      <div className="text-3xl font-black text-forest tracking-tight">$2,450.00</div>
+                      <div className="text-3xl font-black text-forest tracking-tight">97.8%</div>
                       <div className="text-xs text-forest/40 font-bold mt-4 bg-forest/5 inline-block px-3 py-1 rounded-full">
-                         Dynamic rate
+                         Avg. close: 4.2 days
                       </div>
                    </div>
                 </div>
@@ -122,11 +126,11 @@ const LandingPage = () => {
                             <Activity size={24} />
                          </div>
                          <div>
-                            <div className="font-black text-forest text-lg tracking-tight">Safety Rating</div>
-                            <div className="text-xs text-forest/40 font-bold">Real-time audit active</div>
+                            <div className="font-black text-forest text-lg tracking-tight">Evaluator Score</div>
+                            <div className="text-xs text-forest/40 font-bold">Workflow quality monitoring</div>
                          </div>
                       </div>
-                      <div className="font-black text-2xl text-forest">99.2%</div>
+                      <div className="font-black text-2xl text-forest">99.0%</div>
                    </div>
                    
                    <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex items-center justify-between">
@@ -135,8 +139,8 @@ const LandingPage = () => {
                             <Zap size={24} />
                          </div>
                          <div>
-                            <div className="font-black text-forest text-lg tracking-tight">Instant Audit</div>
-                            <div className="text-xs text-forest/40 font-bold">Autonomous risk assessment</div>
+                            <div className="font-black text-forest text-lg tracking-tight">Rexy Guidance</div>
+                            <div className="text-xs text-forest/40 font-bold">Call + evidence uploads in one chat</div>
                          </div>
                       </div>
                       <ArrowRight size={20} className="text-forest/20" />
@@ -146,10 +150,10 @@ const LandingPage = () => {
                 {/* Floating Badge */}
                 <div className="absolute -top-8 -right-8 bg-forest text-white px-6 py-3 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3 animate-bounce shadow-forest/40">
                    <Zap size={18} className="text-melon-vibrant fill-current" />
-                   <span className="font-black text-sm tracking-tight">Audit in 15s</span>
+                   <span className="font-black text-sm tracking-tight">Call Rexy in 1 tap</span>
                 </div>
              </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 
@@ -163,22 +167,22 @@ const LandingPage = () => {
                 The Problem
               </h2>
               <p className="text-2xl !text-melon/80 max-w-xl leading-relaxed">
-                Major insurers are excluding AI coverage while fintech deploys AI everywhere.
+                Claims, policy terms, and evidence workflows are still fragmented across tools.
               </p>
             </div>
             <div className="border-l-4 border-melon-vibrant pl-8 py-2">
-              <div className="text-melon-vibrant font-black uppercase text-sm tracking-[0.3em] mb-4">Real Incidents</div>
+              <div className="text-melon-vibrant font-black uppercase text-sm tracking-[0.3em] mb-4">Operational Gap</div>
               <div className="text-white/90 font-medium italic text-lg leading-relaxed">
-                "Air Canada liable for chatbot error • Financial advisors sued for AI advice • Banks catching £1M+ fraud weekly"
+                "Teams need one flow from policy creation to claim filing, evidence upload, and settlement tracking."
               </div>
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { val: "3", label: "Major carriers filing to exclude AI liabilities" },
-              { val: "$500B", label: "Fintech industry with zero clear AI coverage" },
-              { val: "85%", label: "Of banks deploying AI for lending & fraud" }
+              { val: "525", label: "Open claims currently tracked in a single ledger" },
+              { val: "99.0%", label: "Evaluator score used to monitor workflow quality" },
+              { val: "97.8%", label: "Resolution rate measured against portfolio targets" }
             ].map((stat, i) => (
               <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 p-10 rounded-[2rem] hover:bg-white/10 transition-colors">
                 <div className="text-7xl font-extrabold text-melon-vibrant mb-4 tracking-tighter">{stat.val}</div>
@@ -199,7 +203,7 @@ const LandingPage = () => {
               Our Solution
             </h2>
             <p className="text-2xl !text-melon/70 max-w-3xl mx-auto leading-relaxed">
-              First MGA delivering autonomous, API-first AI liability coverage for the modern fintech stack.
+              A unified platform for policy intake, claim operations, and Rexy-assisted evidence guidance.
             </p>
           </div>
           
@@ -207,21 +211,21 @@ const LandingPage = () => {
             {[
               {
                 icon: <Shield size={32} />,
-                title: "Autonomous",
-                description: "AI-driven underwriting that understands code better than legacy brokers ever could."
+                title: "Policy-Ready",
+                description: "Create and track coverage with clear limits, deductibles, and workflow-specific terms."
               },
               {
                 icon: <Zap size={32} />,
-                title: "API-First",
-                description: "Embed liability protection directly into your deployment pipeline. Coverage at the speed of code."
+                title: "Claims-Aware",
+                description: "Move from incident intake to reimbursement tracking with structured claims timelines."
               },
               {
                 icon: <TrendingUp size={32} />,
-                title: "Risk-Adjusted",
-                description: "Dynamically priced premiums based on real-time safety logs and system performance."
+                title: "Rexy Guided",
+                description: "Use Rexy AI to call support, upload evidence, and resolve coverage questions quickly."
               }
             ].map((feature, i) => (
-              <motion.div
+              <MotionDiv
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -234,7 +238,7 @@ const LandingPage = () => {
                 </div>
                 <h3 className="text-4xl font-black !text-white mb-6 tracking-tight">{feature.title}</h3>
                 <p className="!text-melon/60 leading-relaxed font-medium text-xl">{feature.description}</p>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
         </div>
@@ -251,20 +255,20 @@ const LandingPage = () => {
                 Control Center
               </div>
               <h2 className="text-4xl lg:text-5xl font-extrabold !text-white mb-8 leading-tight">
-                Your entire AI risk stack, <br />
-                <span className="text-melon-vibrant">automated.</span>
+                Your policies, claims, and guidance, <br />
+                <span className="text-melon-vibrant">in one command center.</span>
               </h2>
               <p className="text-lg !text-melon/80 mb-10 leading-relaxed font-medium">
-                Real-time risk audits, automated liability coverage, and AI risk scoring 
-                from a single, beautiful command center. No paperwork, no friction.
+                Start from Overview, drill into Claims and Policies, and hand off complex questions to Rexy without
+                leaving the workflow.
               </p>
               
               <ul className="space-y-4 mb-10">
                 {[
-                  "Real-time Safety Audit Logs",
-                  "API-driven claims processing",
-                  "Automated Liability Issuance",
-                  "Autonomous Risk Scoring"
+                  "Claims history and incident timeline",
+                  "Evidence uploads and context-aware guidance",
+                  "Policy ledger with live and mock coverage rows",
+                  "Overview metrics for exposure and resolution"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 !text-white font-bold">
                     <div className="w-6 h-6 rounded-full bg-melon-vibrant flex items-center justify-center text-forest">
@@ -316,21 +320,21 @@ const LandingPage = () => {
                                    <Shield size={24} />
                                 </div>
                                 <div>
-                                   <div className="font-bold text-forest">{i === 0 ? 'Lending Model v4.2' : 'Fraud Engine v1.0'}</div>
-                                   <div className="text-sm text-gray-500">Autonomous Liability • Active</div>
+                                   <div className="font-bold text-forest">{i === 0 ? 'AI SaaS Infrastructure' : 'Fraud Decisioning API'}</div>
+                                   <div className="text-sm text-gray-500">{i === 0 ? 'Policy Active • Claims Ready' : 'Policy Pending Review'}</div>
                                 </div>
                              </div>
                              <div className="text-right">
-                                <div className="font-bold text-forest">$2,450/mo</div>
-                                <div className="text-xs text-melon-vibrant font-bold">Last Audit: 1h ago</div>
+                                <div className="font-bold text-forest">{i === 0 ? '$5,800/mo' : '$3,450/mo'}</div>
+                                <div className="text-xs text-melon-vibrant font-bold">{i === 0 ? 'Coverage: $12M' : 'Coverage: $7M'}</div>
                              </div>
                           </div>
                        ))}
                        
                        <div className="bg-forest rounded-xl p-6 text-white flex items-center justify-between shadow-lg relative overflow-hidden">
                           <div className="relative z-10">
-                             <div className="font-bold mb-1">Security Maintenance Credit</div>
-                             <div className="text-melon text-sm">Audit compliance: 100%</div>
+                             <div className="font-bold mb-1">Rexy Coached Next Step</div>
+                             <div className="text-melon text-sm">Upload logs + incident screenshots for faster review</div>
                           </div>
                           <div className="w-12 h-12 rounded-full bg-melon-vibrant flex items-center justify-center text-forest relative z-10">
                               <CheckCircle size={24} className="font-bold" />
@@ -353,9 +357,9 @@ const LandingPage = () => {
       <footer className="py-16 bg-white border-t border-gray-100">
         <div className="w-full max-w-7xl mx-auto px-8 lg:px-16">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-              <img src={logoIcon} alt="Rex" className="h-10 w-auto" />
-              <span className="text-2xl font-extrabold text-forest tracking-tight">Rex</span>
+            <div className="inline-flex items-center gap-3 whitespace-nowrap">
+              <img src={logoIcon} alt="Rex AI" className="h-10 w-auto" />
+              <span className="text-2xl font-extrabold text-forest tracking-tight">Rex AI</span>
             </div>
             
             <div className="flex gap-8 text-forest/60 font-medium">

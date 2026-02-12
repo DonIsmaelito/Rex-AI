@@ -5,25 +5,45 @@ import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import DashboardLayout from './layouts/DashboardLayout';
 import Overview from './pages/dashboard/Overview';
-import Policies from './pages/dashboard/Policies';
 import Claims from './pages/dashboard/Claims';
+import Policies from './pages/dashboard/Policies';
 import Copilot from './pages/dashboard/Copilot';
+import NewClaim from './pages/dashboard/NewClaim';
+import NewPolicy from './pages/dashboard/NewPolicy';
+import { AppDataProvider } from './context/AppDataContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import { Toaster } from './components/ui/sonner';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
-        
-        <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<Overview />} />
-          <Route path="policies" element={<Policies />} />
-          <Route path="claims" element={<Claims />} />
-          <Route path="copilot" element={<Copilot />} />
-        </Route>
-      </Routes>
-    </Router>
+    <AppDataProvider>
+      <Toaster />
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Overview />} />
+            <Route path="claims" element={<Claims />} />
+            <Route path="claims/new" element={<NewClaim />} />
+            <Route path="policies" element={<Policies />} />
+            <Route path="policies/new" element={<NewPolicy />} />
+            <Route path="copilot" element={<Copilot />} />
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          </Route>
+
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
+    </AppDataProvider>
   );
 }
 

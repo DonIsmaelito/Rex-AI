@@ -2,19 +2,22 @@ import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import logoIcon from '../assets/rex_logo.png';
 
+const MotionImg = motion.img;
+
 const Navbar = () => {
   return (
     <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6">
       <div className="w-full max-w-6xl bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] px-8 py-3 flex items-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] ring-1 ring-white/5">
         <div className="w-1/4 flex justify-start">
-          <Link to="/" className="flex items-center gap-4 group">
-            <motion.img 
+          <Link to="/" className="inline-flex items-center gap-3 group whitespace-nowrap">
+            <MotionImg 
               initial={{ rotate: -10 }}
               animate={{ rotate: 0 }}
               src={logoIcon} 
-              alt="Rex" 
+              alt="Rex AI" 
               className="h-16 w-auto drop-shadow-xl" 
             />
+            <span className="text-white text-2xl font-extrabold tracking-tight">Rex AI</span>
           </Link>
         </div>
         
